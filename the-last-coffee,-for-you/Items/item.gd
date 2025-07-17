@@ -1,0 +1,4 @@
+extends Resource
+
+class_name Inventory_Item
+@export var name: String

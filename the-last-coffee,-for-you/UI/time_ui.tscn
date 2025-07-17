@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3d7soxd46ki"]
+
+[ext_resource type="Script" uid="uid://5672e3cvh60x" path="res://UI/time_ui.gd" id="1_yt066"]
+
+[node name="TimeUI" type="CanvasLayer"]
+script = ExtResource("1_yt066")
+
+[node name="DayLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
+text = "Day: 1"
+
+[node name="ClockLabel" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 46.0
+offset_right = 42.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 30
+text = "6:00"
