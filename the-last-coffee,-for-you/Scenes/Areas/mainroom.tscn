@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://ltxkusd3vexo"]
+[gd_scene load_steps=11 format=4 uid="uid://ltxkusd3vexo"]
 
 [ext_resource type="Texture2D" uid="uid://cgvi12odik3x8" path="res://Assets/Tilemaps/Room-1.png" id="1_w2ka8"]
 [ext_resource type="PackedScene" uid="uid://8437no1d02s6" path="res://Characters/MC.tscn" id="2_enx5q"]
-[ext_resource type="PackedScene" uid="uid://b3d7soxd46ki" path="res://UI/time_ui.tscn" id="3_32tix"]
 [ext_resource type="PackedScene" uid="uid://slg3fopeyvok" path="res://Interactables/interactable.tscn" id="4_72nwo"]
 [ext_resource type="Texture2D" uid="uid://b5nac55podpjx" path="res://Assets/Tilemaps/Room2.png" id="4_yp8og"]
+[ext_resource type="PackedScene" uid="uid://dhpwlqf2jnmj7" path="res://UI/UI.tscn" id="5_yp8og"]
+[ext_resource type="PackedScene" uid="uid://dda8k74kv6rgt" path="res://Interactables/door.tscn" id="6_axvce"]
+
+[sub_resource type="GDScript" id="GDScript_yp8og"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enx5q"]
 texture = ExtResource("1_w2ka8")
@@ -111,7 +114,7 @@ texture_region_size = Vector2i(32, 32)
 7:6/0 = 0
 7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, 16, 16, -16, 16, -16, -16)
 0:7/0 = 0
-0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.8604, -16, 12.9045, -16, 12.9045, 6.37262, 1.75247, 6.05399, -10.9928, 8.2844, -13.2232, 4.1422, -13.2232, 3.82357)
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.8604, -16, 12.9045, -16, 12.9045, 6.37262, 1.75247, 6.05399, -12.9045, 7.00988)
 1:7/0 = 0
 1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 12.2673, -16, 12.5859, 11.4707, -16, 11.1521)
 2:7/0 = 0
@@ -123,9 +126,9 @@ texture_region_size = Vector2i(32, 32)
 5:7/0 = 0
 5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, 16, 16, -16, 16, -16, -16)
 6:7/0 = 0
-6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 16, 16, -16, 16, -16, 12.4266, -6.85056, 10.5148, -6.2133, -11.1521, 4.30151, -11.4707, 7.80645, -10.5148, 10.0369, -11.1521, 16, -12.4266, 16, -10.8334)
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 16, 16, -16, 16, -16, 12.4266, -6.85056, 10.5148, -6.2133, -11.1521, 4.30151, -11.4707, 16, -11.1521)
 7:7/0 = 0
-7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 16, 16, -16, 16, -16, -12.7452, 4.30151, -11.4707, 6.85056, 9.55892, 10.8334, 10.0369, 12.2673, -16, 16, -16)
+7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 16, 16, -16, 16, -16, -10.8334, 4.30151, -11.4707, 6.85056, 9.55892, 10.8334, 10.0369, 12.2673, -16, 16, -16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_axvce"]
 texture = ExtResource("4_yp8og")
@@ -138,7 +141,7 @@ texture_region_size = Vector2i(32, 32)
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.0711, 7.32851, 4.93877, 7.32851, 6.2133, 16, -3.34562, 16, -6.2133, 16)
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.9585, -16.5688, -2.0711, -16, 16, -16, 16, 2.86768, 16, 16, -7.80646, 16, -7.16919, -10.8334, -16, -10.1962)
 6:0/0 = 0
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 7:0/0 = 0
@@ -151,7 +154,7 @@ texture_region_size = Vector2i(32, 32)
 3:1/0 = 0
 4:1/0 = 0
 5:1/0 = 0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.08098, -16, 6.85056, -16, 7.80645, 5.41672, -5.57604, 7.00988)
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.39961, -12.7452, 8.44371, -13.0639, 7.80645, 5.41672, -5.57604, 7.00988)
 6:1/0 = 0
 6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 7:1/0 = 0
@@ -231,13 +234,12 @@ sources/0 = SubResource("TileSetAtlasSource_enx5q")
 sources/1 = SubResource("TileSetAtlasSource_axvce")
 
 [node name="House" type="Node2D"]
+script = SubResource("GDScript_yp8og")
 
 [node name="MC" parent="." instance=ExtResource("2_enx5q")]
 z_index = 1
 position = Vector2(64, -28)
-scale = Vector2(1.4584, 1.58568)
-
-[node name="TimeUI" parent="." instance=ExtResource("3_32tix")]
+scale = Vector2(1.2184, 1.12131)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-103, 24)
@@ -262,6 +264,15 @@ popup_text = "A hole in the floor, one your brother made when he was young"
 
 [node name="CollisionShape2D" parent="Interactables/Interactable2/Area2D" index="0"]
 position = Vector2(104.591, -82.0077)
+
+[node name="UI" parent="Interactables/Interactable2/Area2D" index="1" instance=ExtResource("5_yp8og")]
+
+[node name="Door" parent="Interactables" instance=ExtResource("6_axvce")]
+position = Vector2(593, 102)
+
+[node name="Door2" parent="Interactables" instance=ExtResource("6_axvce")]
+position = Vector2(376, -228)
+locked = true
 
 [editable path="Interactables/Interactable"]
 [editable path="Interactables/Interactable2"]

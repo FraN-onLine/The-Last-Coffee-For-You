@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=7 format=3 uid="uid://bh5281gv44is3"]
+
+[ext_resource type="Script" uid="uid://dogun6iu7q75j" path="res://Inventory/item.gd" id="1_7uf4i"]
+[ext_resource type="Script" uid="uid://bxfu686h256w1" path="res://Inventory/Inventory.gd" id="2_oqpsp"]
+[ext_resource type="Resource" uid="uid://c3mowhb0c2a43" path="res://Inventory/Items/coffee_bean.tres" id="2_yrre2"]
+[ext_resource type="Resource" uid="uid://bnhkvosb1kuqa" path="res://Inventory/Items/coffee.tres" id="3_yrre2"]
+[ext_resource type="Resource" uid="uid://b3tm4djpel060" path="res://Inventory/Items/sugar.tres" id="4_wq1fa"]
+[ext_resource type="Resource" uid="uid://c13cipgeoq2xl" path="res://Inventory/Items/espresso.tres" id="5_amcam"]
+
+[resource]
+script = ExtResource("2_oqpsp")
+items = Array[ExtResource("1_7uf4i")]([ExtResource("2_yrre2"), ExtResource("3_yrre2"), ExtResource("3_yrre2"), ExtResource("4_wq1fa"), ExtResource("5_amcam"), ExtResource("2_yrre2"), null, null])
+metadata/_custom_type_script = "uid://bxfu686h256w1"

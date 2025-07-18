@@ -1,7 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://8437no1d02s6"]
+[gd_scene load_steps=26 format=3 uid="uid://8437no1d02s6"]
 
 [ext_resource type="Script" uid="uid://caokpoqj7nvt3" path="res://Character Scripts/mc.gd" id="1_5bpqy"]
 [ext_resource type="Texture2D" uid="uid://dva7qkq0lugp" path="res://Assets/Characters/Beta-sprite.png" id="1_ro4pp"]
+[ext_resource type="Resource" uid="uid://bh5281gv44is3" path="res://Inventory/playerinventory.tres" id="2_63cag"]
+[ext_resource type="Texture2D" uid="uid://b2vdel75ickrb" path="res://Assets/UI/Inventory.png" id="4_csp5j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ldss"]
 atlas = ExtResource("1_ro4pp")
@@ -163,8 +165,9 @@ animations = [{
 radius = 7.0
 height = 18.0
 
-[node name="MC" type="CharacterBody2D"]
+[node name="MC" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_5bpqy")
+inv = ExtResource("2_63cag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nlhd7")
@@ -177,3 +180,8 @@ shape = SubResource("CapsuleShape2D_16moj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="HeldItemSprite" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -16)
+scale = Vector2(0.40625, 0.375)
+texture = ExtResource("4_csp5j")

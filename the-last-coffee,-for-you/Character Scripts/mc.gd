@@ -3,6 +3,12 @@ extends CharacterBody2D
 @export var speed := 120.0
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var inv: Inventory
+@onready var held_item_sprite: Sprite2D = $HeldItemSprite
+
+func set_held_item_texture(texture: Texture2D):
+	held_item_sprite.texture = texture
+	held_item_sprite.visible = texture != null
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
