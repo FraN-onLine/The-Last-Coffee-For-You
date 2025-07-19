@@ -1,6 +1,6 @@
 extends Control
 
-@export var seconds_per_tenmins: float = 4.8
+@export var seconds_per_tenmins: float = 0.5
 
 @export var morning_texture: Texture2D
 @export var afternoon_texture: Texture2D
@@ -46,8 +46,12 @@ func _process(delta):
 				morning = false
 				update_time_indicator()
 
-			# Day ends at 12:00 AM
-			if not morning and current_hour == 0 and current_minute == 0:
+			if current_hour == 18 and current_minute == 0:
+				update_time_indicator()
+
+			# Reset hour after midnight (12 AM)
+			if not morning and current_hour == 24 and current_minute == 0:
+				current_hour = 0
 				fade_to_next_day()
 				return
 
@@ -70,7 +74,7 @@ func update_labels():
 func update_time_indicator():
 	if morning:
 		time_indicator.texture = morning_texture
-	elif current_hour <= 16:
+	elif current_hour < 18:
 		time_indicator.texture = afternoon_texture
 	else:
 		time_indicator.texture = night_texture

@@ -9,6 +9,7 @@ extends CharacterBody2D
 func set_held_item_texture(texture: Texture2D):
 	held_item_sprite.texture = texture
 	held_item_sprite.visible = texture != null
+	$ItemCollision.disabled = texture == null
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
