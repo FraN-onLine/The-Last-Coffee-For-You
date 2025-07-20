@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://ltxkusd3vexo"]
+[gd_scene load_steps=12 format=4 uid="uid://ltxkusd3vexo"]
 
+[ext_resource type="Script" uid="uid://qo38ueenhkcu" path="res://Interactables/container_interactable.gd" id="1_7q5sv"]
 [ext_resource type="Texture2D" uid="uid://cgvi12odik3x8" path="res://Assets/Tilemaps/Room-1.png" id="1_w2ka8"]
 [ext_resource type="PackedScene" uid="uid://8437no1d02s6" path="res://Characters/MC.tscn" id="2_enx5q"]
 [ext_resource type="PackedScene" uid="uid://slg3fopeyvok" path="res://Interactables/interactable.tscn" id="4_72nwo"]
@@ -233,6 +234,7 @@ sources/0 = SubResource("TileSetAtlasSource_enx5q")
 sources/1 = SubResource("TileSetAtlasSource_axvce")
 
 [node name="House" type="Node2D"]
+script = ExtResource("1_7q5sv")
 
 [node name="MC" parent="." instance=ExtResource("2_enx5q")]
 z_index = 1
@@ -263,6 +265,8 @@ popup_text = "A hole in the floor, one your brother made when he was young"
 [node name="CollisionShape2D" parent="Interactables/Interactable2/Area2D" index="0"]
 position = Vector2(104.591, -82.0077)
 
+[node name="UI" parent="Interactables/Interactable2/Area2D" index="1" instance=ExtResource("5_yp8og")]
+
 [node name="Door" parent="Interactables" instance=ExtResource("6_axvce")]
 position = Vector2(593, 102)
 
@@ -272,8 +276,6 @@ locked = true
 
 [node name="container_interactable" parent="." instance=ExtResource("8_bcj3v")]
 position = Vector2(-74, -85)
-
-[node name="UI" parent="." instance=ExtResource("5_yp8og")]
 
 [editable path="Interactables/Interactable"]
 [editable path="Interactables/Interactable2"]

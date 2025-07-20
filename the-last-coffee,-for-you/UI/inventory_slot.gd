@@ -14,7 +14,11 @@ func update(invslot: slot):
 		itemDisplay.texture = invslot.item.texture
 		nameLabel.text = invslot.item.name
 		nameLabel.visible = false
-
+		if invslot.amount > 1:
+			$CountLabel.text = str(invslot.amount)
+			$CountLabel.visible = true
+		else:
+			$CountLabel.visible = false
 func show_name():
 	nameLabel.visible = true
 	nameLabel.modulate = Color(1, 1, 1, 1)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vdel75ickrb" path="res://Assets/UI/Inventory.png" id="2_dk10o"]
 [ext_resource type="PackedScene" uid="uid://c253bntq5g4gy" path="res://UI/inventory_slot.tscn" id="3_t6nog"]
 
-[node name="Inventory_UI" type="Control"]
+[node name="Inventory_UI" type="Control" groups=["inventory_ui"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
