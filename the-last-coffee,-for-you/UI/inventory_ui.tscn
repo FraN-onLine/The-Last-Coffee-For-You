@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c253bntq5g4gy" path="res://UI/inventory_slot.tscn" id="3_t6nog"]
 
 [node name="Inventory_UI" type="Control" groups=["inventory_ui"]]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

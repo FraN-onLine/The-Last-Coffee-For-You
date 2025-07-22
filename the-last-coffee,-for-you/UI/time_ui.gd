@@ -12,6 +12,7 @@ var current_day: int = 1
 var time_accumulator: float = 0.0
 var morning: bool = true
 var fade_in_progress: bool = false
+var paused = false
 
 @onready var clock_label: Label = $ClockLabel
 @onready var day_label: Label = $DayLabel
@@ -30,7 +31,7 @@ func _ready():
 	fade_rect.z_index = 100
 
 func _process(delta):
-	if fade_in_progress:
+	if paused or fade_in_progress:
 		return
 
 	time_accumulator += delta

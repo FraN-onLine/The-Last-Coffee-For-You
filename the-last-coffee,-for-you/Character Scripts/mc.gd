@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var speed := 120.0
+@export var speed := 120.
+var paused: bool = false
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var inv: Inventory
@@ -12,6 +13,8 @@ func set_held_item_texture(texture: Texture2D):
 	$ItemCollision.disabled = texture == null
 
 func _physics_process(delta):
+	if paused:
+		return
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")

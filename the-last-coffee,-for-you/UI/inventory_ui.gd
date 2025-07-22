@@ -7,8 +7,13 @@ var selected_index: int = 0
 
 
 func _ready() -> void:
+	inv.slot_updated.connect(update_slots)
 	update_slots()
 	highlight_selected()
+	for i in range(slots.size()):
+		slots[i].slot_index = i
+		if not slots[i].is_connected("slot_clicked", Callable(self, "_on_slot_clicked")):
+			slots[i].connect("slot_clicked", Callable(self, "_on_slot_clicked"))
 
 func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
@@ -45,3 +50,9 @@ func _input(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			selected_index = abs((selected_index + 1) % slots.size())
 			highlight_selected()
+
+func _on_slot_clicked(slot_index):
+	# Check if a container UI is open
+	var container_ui = get_tree().get_first_node_in_group("container_ui")
+	if container_ui:
+		container_ui.transfer_item_from_player_to_container(slot_index)
