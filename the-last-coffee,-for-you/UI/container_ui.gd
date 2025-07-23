@@ -7,6 +7,7 @@ const PopupText = preload("res://Interactables/pop_up_text.tscn")
 var player_inventory: Inventory = null
 var player_slots: Array = []
 var player_selected_index: int = 0
+@onready var popup_instance: Node = null
 
 signal ui_closed
 
@@ -56,6 +57,8 @@ func transfer_item_from_player_to_container(player_index):
 		show_popup("No player inventory found!")
 		return
 	var player_slot = player_inventory.slots[player_index]
+	if player_slot.item == null:
+		return # Don't show popup if empty
 	# Find first empty or matching container slot
 	for container_slot in container_inventory.slots:
 		if container_slot.item == null or container_slot.item == player_slot.item:
@@ -76,6 +79,8 @@ func transfer_item_from_container_to_player(container_index):
 		show_popup("No player inventory found!")
 		return
 	var container_slot = container_inventory.slots[container_index]
+	if container_slot.item == null:
+		return # Don't show popup if empty
 	# Find first empty or matching player slot
 	for player_slot in player_inventory.slots:
 		if player_slot.item == null or player_slot.item == container_slot.item:
@@ -103,9 +108,11 @@ func update_player_ui():
 		inv_ui.update_slots()
 
 func show_popup(text):
-	var popup = PopupText.instantiate()
-	add_child(popup)
-	popup.show_popup(text)
+	if popup_instance:
+		popup_instance.queue_free()
+	popup_instance = PopupText.instantiate()
+	add_child(popup_instance)
+	popup_instance.show_popup(text)
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
