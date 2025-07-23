@@ -105,7 +105,6 @@ func update_player_ui():
 func show_popup(text):
 	var popup = PopupText.instantiate()
 	add_child(popup)
-	popup.global_position = get_global_mouse_position()
 	popup.show_popup(text)
 
 func _input(event):
