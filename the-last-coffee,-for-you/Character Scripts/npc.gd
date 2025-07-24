@@ -43,11 +43,10 @@ func interact_with_npc():
 	# TODO: Increment friendship, trigger events, etc.
 
 func show_dialogue():
-	var day = get_current_day()
+	var day = get_current_day() # returns an int
 	var text = npc_data.dialogues.get(day, "...")
 	var popup = preload("res://Interactables/pop_up_text.tscn").instantiate()
 	get_tree().current_scene.add_child(popup)
-	popup.global_position = global_position + Vector2(0, -40)
 	popup.show_popup(text)
 
 func play_animation(anim_type: String):
@@ -57,8 +56,8 @@ func play_animation(anim_type: String):
 func get_current_day():
 	var time_ui = get_tree().current_scene.get_node("UI/TimeUI")
 	if time_ui:
-		return str(time_ui.current_day) # Or your actual day logic
-	return "Monday"
+		return time_ui.current_day # returns an int
+	return 1
 
 func reset_interaction():
 	interacted_today = false

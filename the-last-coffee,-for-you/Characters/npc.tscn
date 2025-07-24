@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c52fihihm67w1"]
+[gd_scene load_steps=9 format=3 uid="uid://c52fihihm67w1"]
 
 [ext_resource type="Script" uid="uid://b7f1dxndh6yni" path="res://Character Scripts/npc.gd" id="1_64dcp"]
+[ext_resource type="Resource" uid="uid://ct6f0mael8bok" path="res://Characters/npcdata/Illeon.tres" id="2_6ybb6"]
 [ext_resource type="Texture2D" uid="uid://dva7qkq0lugp" path="res://Assets/Characters/Beta-sprite.png" id="2_32lk6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ybb6"]
@@ -33,11 +34,12 @@ size = Vector2(42, 43)
 
 [node name="NPC" type="CharacterBody2D"]
 script = ExtResource("1_64dcp")
+npc_data = ExtResource("2_6ybb6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ws6e5")
 animation = &"idle"
-frame_progress = 0.841187
+frame_progress = 0.0921594
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
