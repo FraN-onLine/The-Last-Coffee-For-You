@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://ltxkusd3vexo"]
+[gd_scene load_steps=49 format=4 uid="uid://ltxkusd3vexo"]
 
 [ext_resource type="Texture2D" uid="uid://cgvi12odik3x8" path="res://Assets/Tilemaps/Room-1.png" id="1_w2ka8"]
 [ext_resource type="PackedScene" uid="uid://8437no1d02s6" path="res://Characters/MC.tscn" id="2_enx5q"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://fgp8dfuypcmu" path="res://Inventory/Items/affogato.tres" id="12_lntxb"]
 [ext_resource type="Resource" uid="uid://ccjbgxymcdjdm" path="res://Inventory/Items/tea.tres" id="14_5cjpy"]
 [ext_resource type="Resource" uid="uid://xjjsptpgpb5a" path="res://Inventory/Items/foamed_milk.tres" id="15_4pbpl"]
+[ext_resource type="PackedScene" uid="uid://c52fihihm67w1" path="res://Characters/npc.tscn" id="19_hqxqd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enx5q"]
 texture = ExtResource("1_w2ka8")
@@ -434,6 +435,9 @@ position = Vector2(625, -96)
 container_inventory = SubResource("Resource_5cjpy")
 
 [node name="UI" parent="." instance=ExtResource("5_yp8og")]
+
+[node name="NPC" parent="." instance=ExtResource("19_hqxqd")]
+position = Vector2(-33, -24)
 
 [editable path="Interactables/Interactable"]
 [editable path="Interactables/Interactable2"]
