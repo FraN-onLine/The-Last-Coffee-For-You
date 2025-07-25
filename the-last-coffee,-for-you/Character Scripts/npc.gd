@@ -13,6 +13,13 @@ func _ready():
 	$ProximityArea.body_entered.connect(Callable(self, "_on_proximity_entered"))
 	$ProximityArea.body_exited.connect(Callable(self, "_on_proximity_exited"))
 	$InteractionArea.input_event.connect(Callable(self, "_on_interaction_area_input"))
+	Global.connect("new_day", Callable(self, "new_day"))
+
+func new_day():
+	# Reset interaction state for the new day
+	print("new day for NPC: ", npc_data.name)
+	interacted_today = false
+	set_daily_schedule()
 
 func set_daily_schedule():
 	var day = get_current_day()
@@ -56,7 +63,7 @@ func play_animation(anim_type: String):
 func get_current_day():
 	var time_ui = get_tree().current_scene.get_node("UI/TimeUI")
 	if time_ui:
-		return time_ui.current_day # returns an int
+		return Global.current_day # returns an int
 	return 1
 
 func reset_interaction():
