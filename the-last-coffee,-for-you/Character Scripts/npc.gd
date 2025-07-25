@@ -15,6 +15,17 @@ func _ready():
 	$InteractionArea.input_event.connect(Callable(self, "_on_interaction_area_input"))
 	Global.connect("new_day", Callable(self, "new_day"))
 
+func _process(delta: float) -> void:
+	if velocity.length() > 0:
+		play_animation("walk-right" if velocity.x > 0 else "walk-left")
+	elif velocity.y < 0:
+		play_animation("walk-up")
+	elif velocity.y > 0:
+		play_animation("walk-down")
+	else:
+		play_animation("walk-right")
+	
+
 func new_day():
 	# Reset interaction state for the new day
 	print("new day for NPC: ", npc_data.name)
@@ -33,12 +44,12 @@ func _physics_process(delta):
 		var direction = (target - global_position).normalized()
 		velocity = direction * speed
 		move_and_slide()
-		play_animation("walk")
+		play_animation("walk-right")
 		if global_position.distance_to(target) < 5:
 			path_index += 1
 	else:
 		velocity = Vector2.ZERO
-		play_animation("idle")
+		play_animation("idle-right")
 
 func _on_interaction_area_input(viewport, event, shape_idx):
 	if player_nearby and event.is_action_pressed("interact") and not interacted_today:
@@ -46,15 +57,15 @@ func _on_interaction_area_input(viewport, event, shape_idx):
 		interacted_today = true
 
 func interact_with_npc():
-	show_dialogue()
-	# TODO: Increment friendship, trigger events, etc.
+	print("intracted")
+	var dialogue_resource = preload("res://Dialog/Aileen1.dialogue") # or use your NPC's dialogue file
+	DialogueManager.show_dialogue_balloon(dialogue_resource, "start") # "start" is the dialogue title/entry point
+	Global.is_paused = true
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
-func show_dialogue():
-	var day = get_current_day() # returns an int
-	var text = npc_data.dialogues.get(day, "...")
-	var popup = preload("res://Interactables/pop_up_text.tscn").instantiate()
-	get_tree().current_scene.add_child(popup)
-	popup.show_popup(text)
+func _on_dialogue_ended():
+	Global.is_paused = false
+	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
 
 func play_animation(anim_type: String):
 	if npc_data and npc_data.animations.has(anim_type):

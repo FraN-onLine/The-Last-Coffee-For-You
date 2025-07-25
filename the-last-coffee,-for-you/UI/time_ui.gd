@@ -27,7 +27,7 @@ func _ready():
 	fade_rect.z_index = 100
 
 func _process(delta):
-	if paused or fade_in_progress:
+	if paused or fade_in_progress or Global.is_paused:
 		return
 
 	time_accumulator += delta

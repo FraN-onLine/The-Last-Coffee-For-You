@@ -216,19 +216,16 @@ autoplay = "idle-front"
 frame_progress = 0.0274855
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_64dcp")
 
 [node name="ProximityArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityArea"]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_qyjah")
 
 [node name="InteractionArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("RectangleShape2D_64dcp")

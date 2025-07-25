@@ -19,8 +19,8 @@ func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
 		slots[i].update(inv.slots[i])
 
-	for slot in slots:
-		slot.modulate = Color(1, 1, 1, 1)
+	for s in slots:
+		s.modulate = Color(1, 1, 1, 1)
 	highlight_selected()
 
 func update_held_item():

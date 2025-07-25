@@ -42,8 +42,8 @@ func _ready():
 func update_slots():
 	for i in range(min(container_inventory.slots.size(), container_slots.size())):
 		container_slots[i].update(container_inventory.slots[i])
-	for slot in container_slots:
-		slot.modulate = Color(1, 1, 1, 1)
+	for s in container_slots:
+		s.modulate = Color(1, 1, 1, 1)
 
 func _on_container_slot_clicked(container_index):
 	print(container_index)
