@@ -440,6 +440,7 @@ container_inventory = SubResource("Resource_5cjpy")
 
 [node name="NPC" parent="." instance=ExtResource("19_hqxqd")]
 position = Vector2(-33, -24)
+speed = null
 
 [editable path="Interactables/Interactable"]
 [editable path="Interactables/Interactable2"]

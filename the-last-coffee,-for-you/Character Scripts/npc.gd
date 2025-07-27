@@ -7,6 +7,7 @@ var current_path: Array = []
 var path_index: int = 0
 var interacted_today: bool = false
 
+
 func _ready():
 	set_daily_schedule()
 	play_animation("idle")
@@ -57,15 +58,35 @@ func _on_interaction_area_input(viewport, event, shape_idx):
 		interacted_today = true
 
 func interact_with_npc():
-	print("intracted")
-	var dialogue_resource = preload("res://Dialog/Aileen1.dialogue") # or use your NPC's dialogue file
-	DialogueManager.show_dialogue_balloon(dialogue_resource, "start") # "start" is the dialogue title/entry point
+	var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
+	if inv_ui:
+		var inv = inv_ui.inv
+		var slot_index = inv_ui.selected_index
+		var slot = inv.slots[slot_index]
+		if slot.item:
+			var item = slot.item
+			var reaction_key = "neutral"
+			if npc_data.loved_items.has(item):
+				reaction_key = "liked"
+			elif npc_data.hated_items.has(item):
+				reaction_key = "hated"
+			# Remove the item from the inventory
+			inv.remove_one_from_slot(slot_index)
+			inv_ui.update_slots()
+			# Show reaction dialogue using Dialogue Manager
+			DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, reaction_key)
+			Global.is_paused = true
+			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+			return
+	# Normal
+	DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, "start")
 	Global.is_paused = true
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 func _on_dialogue_ended():
 	Global.is_paused = false
-	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
+	if DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
+		DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
 
 func play_animation(anim_type: String):
 	if npc_data and npc_data.animations.has(anim_type):
