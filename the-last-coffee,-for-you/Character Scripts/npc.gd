@@ -6,7 +6,8 @@ var player_nearby := false
 var current_path: Array = []
 var path_index: int = 0
 var interacted_today: bool = false
-
+var gifted_today: bool = false
+var liked_giftcount: int = 0
 
 func _ready():
 	set_daily_schedule()
@@ -15,6 +16,7 @@ func _ready():
 	$ProximityArea.body_exited.connect(Callable(self, "_on_proximity_exited"))
 	$InteractionArea.input_event.connect(Callable(self, "_on_interaction_area_input"))
 	Global.connect("new_day", Callable(self, "new_day"))
+	DialogueManager.dialogue_ended.connect(Callable(self, "_on_dialogue_ended"))
 
 func _process(delta: float) -> void:
 	if velocity.length() > 0:
@@ -30,7 +32,7 @@ func _process(delta: float) -> void:
 func new_day():
 	# Reset interaction state for the new day
 	print("new day for NPC: ", npc_data.name)
-	interacted_today = false
+	reset_interaction()
 	set_daily_schedule()
 
 func set_daily_schedule():
@@ -53,21 +55,24 @@ func _physics_process(delta):
 		play_animation("idle-right")
 
 func _on_interaction_area_input(viewport, event, shape_idx):
-	if player_nearby and event.is_action_pressed("interact") and not interacted_today:
+	if player_nearby and event.is_action_pressed("interact"):
 		interact_with_npc()
-		interacted_today = true
+		
 
 func interact_with_npc():
 	var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
-	if inv_ui:
+	if inv_ui and gifted_today == false:
 		var inv = inv_ui.inv
 		var slot_index = inv_ui.selected_index
-		var slot = inv.slots[slot_index]
-		if slot.item:
-			var item = slot.item
+		var s = inv.slots[slot_index]
+		if s.item:
+			var item = s.item
 			var reaction_key = "neutral"
 			if npc_data.loved_items.has(item):
 				reaction_key = "liked"
+				liked_giftcount += 1
+				if liked_giftcount == 3:
+					reaction_key = "liked_gifted_thrice"
 			elif npc_data.hated_items.has(item):
 				reaction_key = "hated"
 			# Remove the item from the inventory
@@ -76,17 +81,16 @@ func interact_with_npc():
 			# Show reaction dialogue using Dialogue Manager
 			DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, reaction_key)
 			Global.is_paused = true
-			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+			gifted_today = true
 			return
-	# Normal
-	DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, "start")
-	Global.is_paused = true
-	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	if interacted_today == false:
+		DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, "start")
+		Global.is_paused = true
+		interacted_today = true
 
-func _on_dialogue_ended():
+func _on_dialogue_ended(res: Resource):
+	print("darling, hold my hand")
 	Global.is_paused = false
-	if DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
-		DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
 
 func play_animation(anim_type: String):
 	if npc_data and npc_data.animations.has(anim_type):
@@ -100,6 +104,7 @@ func get_current_day():
 
 func reset_interaction():
 	interacted_today = false
+	gifted_today = false
 
 func _on_proximity_entered(body):
 	if body.is_in_group("player"):
