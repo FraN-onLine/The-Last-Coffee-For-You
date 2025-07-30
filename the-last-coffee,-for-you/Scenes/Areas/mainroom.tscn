@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://ltxkusd3vexo"]
+[gd_scene load_steps=51 format=4 uid="uid://ltxkusd3vexo"]
 
 [ext_resource type="Texture2D" uid="uid://cgvi12odik3x8" path="res://Assets/Tilemaps/Room-1.png" id="1_w2ka8"]
 [ext_resource type="PackedScene" uid="uid://8437no1d02s6" path="res://Characters/MC.tscn" id="2_enx5q"]
@@ -244,6 +244,13 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_enx5q")
 sources/1 = SubResource("TileSetAtlasSource_axvce")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hqxqd"]
+load_path = "res://.godot/imported/Room2.png-06b34453e7b44540fd77d110b9efb66e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pbpl"]
+atlas = SubResource("CompressedTexture2D_hqxqd")
+region = Rect2(32, 160, 32, 32)
+
 [sub_resource type="Resource" id="Resource_nfn2a"]
 script = ExtResource("8_mjped")
 item = ExtResource("9_5cjpy")
@@ -393,7 +400,7 @@ metadata/_custom_type_script = "uid://bxfu686h256w1"
 [node name="MC" parent="." instance=ExtResource("2_enx5q")]
 z_index = 1
 position = Vector2(64, -28)
-scale = Vector2(1.2184, 1.12131)
+scale = Vector2(1.47193, 1.36131)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-103, 24)
@@ -428,6 +435,9 @@ position = Vector2(293, -147)
 scale = Vector2(0.818773, 0.845108)
 locked = true
 
+[node name="Sprite2D" parent="Interactables/Door2" index="1"]
+texture = SubResource("AtlasTexture_4pbpl")
+
 [node name="container_interactable2" parent="Interactables" instance=ExtResource("8_bcj3v")]
 position = Vector2(-76, -74)
 container_inventory = SubResource("Resource_4gpr3")
@@ -439,9 +449,10 @@ container_inventory = SubResource("Resource_5cjpy")
 [node name="UI" parent="." instance=ExtResource("5_yp8og")]
 
 [node name="NPC" parent="." instance=ExtResource("19_hqxqd")]
-position = Vector2(-33, -24)
+position = Vector2(-11, -71)
 
 [editable path="Interactables/Interactable"]
 [editable path="Interactables/Interactable2"]
+[editable path="Interactables/Door2"]
 [editable path="Interactables/container_interactable2"]
 [editable path="Interactables/container_interactable"]

@@ -6,6 +6,8 @@ var paused: bool = false
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var inv: Inventory
 @onready var held_item_sprite: Sprite2D = $HeldItemSprite
+var animation: String = "idle"
+var direction: String = "-up"
 
 func set_held_item_texture(texture: Texture2D):
 	held_item_sprite.texture = texture
@@ -13,7 +15,16 @@ func set_held_item_texture(texture: Texture2D):
 	$ItemCollision.disabled = texture == null
 
 func _physics_process(delta):
-	if paused:
+	if Global.is_paused or paused:
+		animation = "idle"
+		animation = animation + direction 
+		var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
+		var slot_index = inv_ui.selected_index
+		var s = inv.slots[slot_index]
+		if s.item:
+			animation = animation + "-hold"
+		anim_sprite.animation = animation
+		anim_sprite.play()
 		return
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -22,17 +33,32 @@ func _physics_process(delta):
 	velocity = input_vector * speed
 	move_and_slide()
 
-	# Animation logic
 	if input_vector != Vector2.ZERO:
+		animation = "walk"
 		if abs(input_vector.x) > abs(input_vector.y):
-			anim_sprite.animation = "walk-side"
-			anim_sprite.flip_h = input_vector.x < 0
+			if input_vector.x < 0:
+				direction = "-left"
+			else:
+				direction = "-right"
 		elif input_vector.y < 0:
-			anim_sprite.animation = "walk-up"
-			anim_sprite.flip_h = false
+			direction = "-up"
 		else:
-			anim_sprite.animation = "walk-down"
-			anim_sprite.flip_h = false
+			direction = "-down"
+		animation = animation + direction 
+		var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
+		var slot_index = inv_ui.selected_index
+		var s = inv.slots[slot_index]
+		if s.item:
+			animation = animation + "-hold"
+		anim_sprite.animation = animation
 		anim_sprite.play()
 	else:
-		anim_sprite.stop()
+		animation = "idle"
+		animation = animation + direction 
+		var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
+		var slot_index = inv_ui.selected_index
+		var s = inv.slots[slot_index]
+		if s.item:
+			animation = animation + "-hold"
+		anim_sprite.animation = animation
+		anim_sprite.play()
