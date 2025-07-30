@@ -1,50 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1w8k8ficafnd"]
+[gd_scene load_steps=2 format=3 uid="uid://b1w8k8ficafnd"]
 
 [ext_resource type="Script" uid="uid://dosefh32t4kal" path="res://Interactables/popup_text.gd" id="1_gtkt0"]
-
-[sub_resource type="Animation" id="Animation_bt7p8"]
-length = 1.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.81),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(252, 495), Vector2(254, 482)]
-}
-
-[sub_resource type="Animation" id="Animation_gtkt0"]
-resource_name = "bobbing"
-length = 1.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(378, 492), Vector2(378, 462)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dev3"]
-_data = {
-&"RESET": SubResource("Animation_bt7p8"),
-&"bobbing": SubResource("Animation_gtkt0")
-}
 
 [node name="PopUpText" type="CanvasLayer"]
 script = ExtResource("1_gtkt0")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="RichTextLabel" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -59,13 +20,6 @@ grow_vertical = 0
 rotation = 0.000707048
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 26
-text = "fgdtfgddgdfgdfgdfgdgdgdgdsdasdadadadasdadadad"
+bbcode_enabled = true
+text = "ssafcdfscjhnisdybiuc"
 horizontal_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Label")
-libraries = {
-&"": SubResource("AnimationLibrary_5dev3")
-}
-autoplay = "RESET"

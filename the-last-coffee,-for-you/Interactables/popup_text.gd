@@ -5,7 +5,7 @@ var timer := 0.0
 @onready var label = $Label
 
 func show_popup(popup_text):
-	label.text = popup_text
+	label.text = "[pulse] " + popup_text + " [/pulse]"
 	label.visible = true
 	timer = 0.0
 

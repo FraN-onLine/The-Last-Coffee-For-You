@@ -408,7 +408,7 @@ position = Vector2(0, 1)
 scale = Vector2(0.6875, 0.65625)
 sprite_frames = SubResource("SpriteFrames_nlhd7")
 animation = &"walk-left-hold"
-frame_progress = 0.164501
+frame_progress = 0.440948
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
