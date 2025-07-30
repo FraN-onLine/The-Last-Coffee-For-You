@@ -84,7 +84,7 @@ func interact_with_npc():
 			gifted_today = true
 			return
 	if interacted_today == false:
-		DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, "start")
+		DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, "day1")
 		Global.is_paused = true
 		interacted_today = true
 
