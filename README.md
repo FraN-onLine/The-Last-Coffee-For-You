@@ -1,7 +1,8 @@
 # The Last Coffee, For You
-You don't know when it'll be your last, say your goodbyes before it's too late  
+You don't know when it'll be your last, will you say your goodbyes before it's too late  
 reconnect with them before its too late  
 or live with regret knowing that your last moment with them already passed away  
+it's open and branching as it could be  
 (proper description when i feel like it, one exists on my github page actually)  
 
 ## Behind the Idea:
@@ -11,9 +12,10 @@ As abandoned as i felt about them.. the more i yearned for recconection?
 Coffee in this game is a symbol of connection, Familial, Platonic or Romantic  
 
 ## The Coffee I Brewed for You: (regretful ahh song lyrics)  
+  
 One day, youll get tired of the tired of the coffee,  
 Tired of the monotony of the same old story  
-A latte with some toffee, A freshed cold brewed coffee  
+A latte with some toffee, A freshed cold brewed coffee~  
 It's the same flavors you called "mine", a cup of some time?  
    
 I'd like to think we'll collide one day,   
