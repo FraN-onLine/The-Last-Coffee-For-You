@@ -53,6 +53,7 @@ func _input(event):
 
 func _on_slot_clicked(slot_index):
 	# Check if a container UI is open
+	print("tappy tap")
 	var container_ui = get_tree().get_first_node_in_group("container_ui")
 	if container_ui:
 		container_ui.transfer_item_from_player_to_container(slot_index)

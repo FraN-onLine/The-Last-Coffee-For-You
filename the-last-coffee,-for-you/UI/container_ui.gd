@@ -25,8 +25,10 @@ func _ready():
 			# Connect player slot signals
 			for i in range(player_slots.size()):
 				player_slots[i].slot_index = i
+				print(i)
 				if not player_slots[i].is_connected("slot_clicked", Callable(self, "_on_player_slot_clicked")):
 					player_slots[i].connect("slot_clicked", Callable(self, "_on_player_slot_clicked"))
+					print("yes")
 	update_slots()
 	# Connect container slot signals
 	for i in range(container_slots.size()):

@@ -26,6 +26,7 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+metadata/_edit_lock_ = true
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
 custom_minimum_size = Vector2(20, 0)
@@ -36,9 +37,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -31.0
-offset_top = -299.0
+offset_top = -302.0
 offset_right = 49.0
-offset_bottom = 344.0
+offset_bottom = 341.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/v_separation = 77
