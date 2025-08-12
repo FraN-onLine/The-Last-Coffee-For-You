@@ -139,4 +139,4 @@ position = Vector2(574, 318)
 scale = Vector2(6.44792, 6.09375)
 sprite_frames = SubResource("SpriteFrames_goyi4")
 autoplay = "default"
-frame_progress = 0.989184
+frame_progress = 0.248919

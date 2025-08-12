@@ -18,7 +18,8 @@ _(Proper game description coming when I feel like writing one… there’s alrea
 
 ## 💡 Behind the Idea
 Weirdly enough, three people with *really* similar names inspired this.  
-They left, one way or another — and with them went the certainty of tomorrow.  
+They left traces, and with them went the certainty of tomorrow.  
+Also Last Cup of Coffee aswell as Deathbed being on my track solidifed this idea amidst my stardew sessions full of uncertainty.  
 
 Regret.  
 Longing.  
@@ -32,19 +33,19 @@ Every sip is a chance to bridge the gap… or let it widen.
 ---
 
 ## 🎵 *The Coffee I Brewed for You*  
-<sub>_(Regretful little song snippet from the heart.)_</sub>  
+<sub>_(Snippet of the game's song, there's a full ver ngem...)_</sub>  
 
 > One day, you'll get tired of the coffee,  
 > Tired of the monotony of the same old story.  
 > A latte with some toffee, a fresh cold brew —  
 > The same flavors you once called "mine,"  
-> a cup of some time?  
+> a cup of coffee some time?  
 >   
 > I'd like to think we'll collide one day,  
 > We'll share a coffee along the way.  
 > Oh, I'll make a cup of ol’ times for you,  
 > The memories we'll share once we're through.  
-> The same flavors you called "mine," a cup of some time?  
+> The same flavors you called "mine," a cup of coffee some time?  
 > Will there be a next time…  
 > or was this our last… time…  
 
