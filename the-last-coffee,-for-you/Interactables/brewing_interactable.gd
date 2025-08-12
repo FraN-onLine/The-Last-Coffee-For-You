@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var container_inventory: Inventory
-const ContainerUI = preload("res://UI/container_ui.tscn")
+const ContainerUI = preload("res://UI/brewing_ui.tscn")
 
 var player_nearby := false
 
