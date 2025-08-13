@@ -8,6 +8,7 @@ var path_index: int = 0
 var interacted_today: bool = false
 var gifted_today: bool = false
 var liked_giftcount: int = 0
+var met = false
 
 func _ready():
 	set_daily_schedule()
@@ -84,7 +85,9 @@ func interact_with_npc():
 			gifted_today = true
 			return
 	if interacted_today == false:
-		DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, "day1")
+		var day = "day" + str(Global.current_day)
+		DialogueManager.show_dialogue_balloon(npc_data.dialogue_path, day)
+		met = true
 		Global.is_paused = true
 		interacted_today = true
 
